@@ -1,5 +1,5 @@
 # climax_ai
-Climax is an environment &amp; civic ai intelligence system that's works and enables users to predict natural events, threats and get informed the best possible solutions to travelers and social livelihood. 
+Climax is an environment &amp; civic ai intelligence system that works and enables users to predict natural events, threats and get informed the best possible solutions to travelers and social livelihood. 
 
 Climax - Environment & Civic AI Intelligence System/Application 
 
