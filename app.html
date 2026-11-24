@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Climax — Environment & Civic Intelligence</title>
+  <meta name="description" content="Climax predicts, reports and analyzes natural hazards in real time, scores the regions most likely to be impacted, and delivers precautions and an AI assistant." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">CLIMAX</span>
+      <span class="tagline">Environment &amp; Civic Intelligence</span>
+    </div>
+    <div class="status">
+      <span id="status-line" class="status-line">Starting…</span>
+      <div id="sources" class="sources"></div>
+    </div>
+    <div id="user-area" class="user-area"></div>
+  </header>
+
+  <div id="config-banner" class="config-banner hidden">
+    <span>⚙️ Running in <strong>Preview mode</strong>. Add your Supabase project to enable real accounts &amp; saved regions, and your Anthropic key to enable the assistant.</span>
+    <button id="open-settings-banner" class="btn-sm">Open Settings</button>
+  </div>
+
+  <!-- ===== Auth gate (only when Supabase is configured and signed out) ===== -->
+  <section id="auth-view" class="auth-view hidden">
+    <div class="auth-hero">
+      <h1>See the threat before it arrives.</h1>
+      <p>Climax fuses live satellite and sensor feeds to predict natural hazards on a real-time continuum — ranking the regions most likely to be impacted and delivering precautions the moment they matter.</p>
+      <ul class="hero-points">
+        <li>🌐 Real-time global hazard map</li>
+        <li>📈 Region risk scoring &amp; alerts</li>
+        <li>🤖 AI assistant for precautions &amp; analysis</li>
+      </ul>
+    </div>
+    <form class="auth-card" onsubmit="return false">
+      <h2>Welcome to Climax</h2>
+      <p class="auth-intro">Continue with a social account to save your watched regions.</p>
+      <div class="oauth-actions">
+        <button id="btn-google" class="oauth-btn" type="button">Continue with Google</button>
+        <button id="btn-github" class="oauth-btn" type="button">Continue with GitHub</button>
+      </div>
+      <p class="fine">Google and GitHub sign-in must be enabled in Supabase Authentication settings.</p>
+      <p class="fine">Secure authentication by Supabase. Your watched regions are private to your account.</p>
+    </form>
+  </section>
+
+  <!-- ===== Main dashboard ===== -->
+  <main id="app-view" class="app-view hidden">
+    <section class="map-col">
+      <div class="panel map-panel">
+        <div class="panel-head">
+          <h2>Hazard &amp; Road Map</h2>
+          <div class="map-tools">
+            <div id="filters" class="filters"></div>
+            <button id="start-report" class="btn-sm" type="button">Report road issue</button>
+            <button id="refresh-now" class="btn-sm" title="Refresh now">⟳</button>
+          </div>
+        </div>
+        <div id="map" class="map"></div>
+        <form id="report-form" class="report-form hidden">
+          <strong>Report a road hazard</strong>
+          <p class="fine">Click the map to pin the location. Reports are public and unverified.</p>
+          <label for="report-category">Issue type</label>
+          <select id="report-category" required></select>
+          <label for="report-description">Details (optional)</label>
+          <textarea id="report-description" maxlength="280" rows="2" placeholder="Describe what travelers should know"></textarea>
+          <div class="report-actions">
+            <span id="report-location" class="fine">No location selected</span>
+            <button id="pick-report-location" class="btn-sm" type="button">Pick on map</button>
+          </div>
+          <div class="report-actions">
+            <button id="cancel-report" class="btn-ghost" type="button">Cancel</button>
+            <button class="btn" type="submit">Submit report</button>
+          </div>
+          <p id="report-sharing-note" class="fine"></p>
+        </form>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><h2>Active Threats</h2></div>
+        <div id="threat-list" class="threat-list"></div>
+      </div>
+    </section>
+
+    <aside class="side-col">
+      <div class="panel">
+        <div class="panel-head">
+          <h2>Alerts</h2>
+          <span class="count" id="alert-count">0</span>
+        </div>
+        <div id="alerts" class="alerts"></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><h2>My Regions</h2></div>
+        <form id="region-form" class="region-form">
+          <input id="region-search" type="text" placeholder="Add a city or region…" />
+          <button class="btn-sm" type="submit">Add</button>
+        </form>
+        <div id="region-list" class="region-list"></div>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Floating assistant launcher -->
+  <button id="open-assistant" class="fab" title="Ask the Climax assistant">🤖</button>
+
+  <!-- Assistant panel -->
+  <section id="assistant" class="assistant">
+    <div class="assistant-head">
+      <div><strong>Climax Assistant</strong><span class="muted"> · grounded on live data</span></div>
+      <button id="close-assistant" class="x" title="Close">×</button>
+    </div>
+    <div id="chat-log" class="chat-log">
+      <div class="msg msg-assistant"><div class="bubble">Hi — I'm the Climax assistant. Ask me about any active hazard, a region's risk, or what precautions to take. I'm reading the live feeds right now.</div></div>
+    </div>
+    <form id="chat-form" class="chat-form">
+      <input id="chat-input" type="text" placeholder="Ask about a hazard or region…" autocomplete="off" />
+      <button class="btn-sm" type="submit">Send</button>
+    </form>
+  </section>
+
+  <!-- Hazard detail drawer -->
+  <section id="drawer" class="drawer">
+    <button id="close-drawer" class="x drawer-x" title="Close">×</button>
+    <div id="drawer-body" class="drawer-body"></div>
+  </section>
+
+  <!-- Settings modal -->
+  <div id="settings" class="modal">
+    <div class="modal-card">
+      <div class="modal-head"><h2>Settings</h2><button id="close-settings" class="x">×</button></div>
+      <p class="muted">Keys are stored in your browser only. The anon key is safe for client use; data is protected by Supabase Row Level Security.</p>
+      <label>Supabase Project URL<input id="set-sb-url" type="text" placeholder="https://xxxx.supabase.co" /></label>
+      <label>Supabase anon/publishable key<input id="set-sb-key" type="text" placeholder="eyJ…" /></label>
+      <hr />
+      <label>Anthropic API key (for the assistant)<input id="set-anthropic" type="password" placeholder="sk-ant-…" /></label>
+      <label>Model<input id="set-model" type="text" placeholder="claude-opus-5-5" /></label>
+      <div class="modal-actions">
+        <button id="save-settings" class="btn">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script type="module" src="assets/app.js"></script>
+</body>
+</html>

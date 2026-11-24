@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#0b0908" />
+  <title>Climax — Environment &amp; civic intelligence</title>
+  <meta name="description" content="Climax forecasts natural hazards from live environmental and civic data, finds the places and people most exposed, coordinates the response, and credits the community that helps." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/landing.css" />
+</head>
+<body>
+  <!-- ===================== Header ===================== -->
+  <header class="site-header">
+    <div class="wrap">
+      <nav class="nav" id="nav">
+        <a class="brand" href="#top" aria-label="Climax home">
+          <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+            <defs><linearGradient id="logo-g" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ff7a45" /><stop offset="1" stop-color="#ffb547" />
+            </linearGradient></defs>
+            <path d="M2 40 L18 16 L30 32 L42 12 L62 40 L62 58 L2 58 Z" fill="url(#logo-g)" opacity="0.9" />
+          </svg>
+          <span class="name">CLIMAX</span>
+        </a>
+        <div class="nav-links">
+          <a href="#features">Features</a>
+          <a href="#how">How it works</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <div class="nav-cta">
+          <a class="btn btn-ghost" href="app.html">Live dashboard →</a>
+          <a class="btn btn-primary" href="#cta">Request a pilot</a>
+        </div>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ===================== Hero ===================== -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="pill"><span class="pip"></span> Now in private beta</span>
+          <h1>See the hazard first,<br /><span class="hl">act before it lands</span></h1>
+          <p class="lead">Climax is an environment and civic intelligence system. It fuses live hazard, environmental and civic data to forecast what is coming, scores the places and people most exposed, and coordinates the response — with a community layer that credits the people who help.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#cta">Request a pilot</a>
+            <a class="btn btn-ghost" href="#how">See the loop</a>
+          </div>
+          <p class="footnote">Pilots open to regional agencies, utilities and community organisations.</p>
+        </div>
+
+        <!-- Live risk board demo widget -->
+        <div class="board" aria-label="Likelihood board, next 24 hours">
+          <div class="board-head">
+            <span class="t">Likelihood · next 24h</span>
+            <span class="r">refresh 90s</span>
+          </div>
+          <ul id="risk-board"><!-- rendered by landing.js --></ul>
+          <div class="board-foot">Exposure scored against population, access and infrastructure · <b>46,200</b> people in watch areas</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Feed strip ===================== -->
+    <section class="feeds">
+      <div class="wrap">
+        <p class="label">Fusing the feeds you already run</p>
+        <div class="feed-chips">
+          <span class="chip">Weather models</span>
+          <span class="chip">River gauges</span>
+          <span class="chip">Seismic nets</span>
+          <span class="chip">Satellite</span>
+          <span class="chip">Radar</span>
+          <span class="chip">Civic reports</span>
+          <span class="chip">Field sensors</span>
+          <span class="chip">Emergency radio</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Features ===================== -->
+    <section id="features">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow"><span class="pip"></span> Predict, prepare, participate</span>
+          <h2>A forecast that changes what happens on the ground</h2>
+          <p>Prediction is only the start. Climax ties every forecast to an action, a place, and the people who can help.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l3-7 4 14 3-7h6"/></svg></div>
+            <h3>Forecast, not hindsight</h3>
+            <p>Hazard models run continuously on live feeds, so a warning exists while there is still time to act.</p>
+          </article>
+          <article class="card">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <h3>Find who is exposed</h3>
+            <p>Every forecast is scored against population, infrastructure and access, down to the district.</p>
+          </article>
+          <article class="card">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></svg></div>
+            <h3>A warning names a place and an action</h3>
+            <p>A forecast without an instruction is noise. Every alert says what to do, where, and by when.</p>
+          </article>
+          <article class="card">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+            <h3>False alarms are a design failure</h3>
+            <p>Confidence ships with every prediction, and the feed behind a warning stays visible so officials can see why it fired.</p>
+          </article>
+          <article class="card">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-9M8 12a6 6 0 0 1 8 0M5 9a10 10 0 0 1 14 0"/></svg></div>
+            <h3>It has to work when the network fails</h3>
+            <p>Low-bandwidth and offline paths matter most in the hour a warning is still useful.</p>
+          </article>
+          <article class="card">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg></div>
+            <h3>Trust is the product</h3>
+            <p>We alert areas and groups, not dossiers of people. Nothing about a household is sold, and pilot data belongs to the pilot.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== How it works / the loop ===================== -->
+    <section id="how">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow"><span class="pip"></span> One operating picture</span>
+          <h2>Three layers, one continuous loop</h2>
+          <p>A forecast is only useful if it changes what happens on the ground. Climax connects the prediction to the response, and the response back to the model.</p>
+        </div>
+        <div class="loop">
+          <div class="layer">
+            <span class="num">01</span>
+            <span class="step">PREDICT</span>
+            <h3>The hazard</h3>
+            <p>Continuous forecasts across hazard families, refreshed as the data changes instead of once a day — weather, water, seismic, satellite and civic reports in one timeline, with provenance on every number.</p>
+          </div>
+          <div class="layer">
+            <span class="num">02</span>
+            <span class="step">PREPARE</span>
+            <h3>The response</h3>
+            <p>Exposure analysis by region and group, with the specific safety measures each one needs and when. Who is doing what, by when — shared between officials, responders and volunteers.</p>
+          </div>
+          <div class="layer">
+            <span class="num">03</span>
+            <span class="step">PARTICIPATE</span>
+            <h3>The community</h3>
+            <p>Communities act together, earn credits for it, and feed verified ground truth back into the model. Neighbours who help during an event earn credits they can spend on preparedness and services.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Community credits band ===================== -->
+    <section id="operations" style="padding-top:0">
+      <div class="wrap">
+        <div class="band">
+          <div>
+            <span class="eyebrow"><span class="pip"></span> Pay the community back</span>
+            <h2>Credits are earned, not gamed</h2>
+            <p>Community credits are verified by the people helped and the coordinator on site, never by posting volume. The people who show up for their neighbours are the ones who get credited.</p>
+          </div>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Credits confirmed by the people helped and the coordinator on site</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Spendable on preparedness and services</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Verified ground truth feeds back into the model</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> One event, seen by everyone who has to act</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Pricing ===================== -->
+    <section id="pricing">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow"><span class="pip"></span> Free where it matters, funded where it scales</span>
+          <h2>Pricing</h2>
+          <p>Households and community groups use Climax for free. Agencies and institutions fund the coverage that protects them.</p>
+        </div>
+        <div class="tiers">
+          <div class="tier">
+            <span class="tname">Community</span>
+            <div class="price">Free</div>
+            <p class="who">For households, neighbourhoods and mutual-aid groups.</p>
+            <ul>
+              <li class="head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Live risk board for your area</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Area and household alerts</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Preparedness guides by hazard</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> SMS and low-bandwidth path</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Community credits on verified help</li>
+            </ul>
+            <a class="btn btn-ghost" href="app.html">Open the dashboard</a>
+          </div>
+          <div class="tier featured">
+            <span class="badge">Most popular</span>
+            <span class="tname">Responder</span>
+            <div class="price">Pilot <small>/ custom</small></div>
+            <p class="who">For utilities, NGOs and field teams that respond.</p>
+            <ul>
+              <li class="head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Everything in Community</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Regional exposure analysis</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Response plans and field check-ins</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Target refresh on active warnings</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Priority support during activations</li>
+            </ul>
+            <a class="btn btn-primary" href="#cta">Start a 30-day pilot</a>
+          </div>
+          <div class="tier">
+            <span class="tname">Agency</span>
+            <div class="price">Custom</div>
+            <p class="who">For regional and national agencies and ministries.</p>
+            <ul>
+              <li class="head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Everything in Responder</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Agency API and data export</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Deployment and training support</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Impact reports after each event</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> A named response lead</li>
+            </ul>
+            <a class="btn btn-ghost" href="#cta">Talk to us</a>
+          </div>
+        </div>
+        <p class="pricing-note">Official warnings come first — where a national or regional agency has issued a warning, we amplify it rather than compete with it.</p>
+      </div>
+    </section>
+
+    <!-- ===================== FAQ ===================== -->
+    <section id="faq">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow"><span class="pip"></span> Questions, answered</span>
+          <h2>Before you ask</h2>
+        </div>
+        <div class="faq-list">
+          <details class="faq">
+            <summary>Can it actually predict a disaster?</summary>
+            <p>Hazard models run continuously on live feeds, so a warning exists while there is still time to act. Confidence ships with every prediction, and the feed behind a warning stays visible so officials can see why it fired.</p>
+          </details>
+          <details class="faq">
+            <summary>Does this replace official warnings?</summary>
+            <p>No. Agencies stay the authority. Climax adds lead time, local specificity and coordination; when an official warning is issued, we amplify it.</p>
+          </details>
+          <details class="faq">
+            <summary>Where does the data come from?</summary>
+            <p>Weather, water, seismic, satellite and civic reports in one timeline, with provenance on every number.</p>
+          </details>
+          <details class="faq">
+            <summary>How do community credits work?</summary>
+            <p>Neighbours who help during an event earn credits they can spend on preparedness and services. Credits are confirmed by the people helped and the coordinator on site — never by post count.</p>
+          </details>
+          <details class="faq">
+            <summary>What happens to personal data?</summary>
+            <p>We alert areas and groups, not dossiers of people. Alerts are scoped to areas and groups rather than individual histories. Pilot data stays with the pilot, is never sold, and can be deleted on request.</p>
+          </details>
+          <details class="faq">
+            <summary>What does a pilot involve?</summary>
+            <p>Six weeks in one region: feed integration, a shared risk picture for your teams, community onboarding, and an after-action report you keep.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CTA ===================== -->
+    <section id="cta">
+      <div class="wrap">
+        <div class="cta">
+          <h2>Start a 30-day pilot</h2>
+          <p>Two months free. Pilots open to regional agencies, utilities and community organisations.</p>
+          <form class="waitlist" id="waitlist-form">
+            <input id="cta-email" type="email" required placeholder="you@agency.gov" aria-label="Work email" autocomplete="email" />
+            <button class="btn btn-primary" type="submit">Join the waitlist</button>
+          </form>
+          <p class="footnote" id="form-note">We alert areas and groups, not individuals. Your details are used only to contact you about the pilot.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== Footer ===================== -->
+  <footer class="site-footer">
+    <div class="wrap foot">
+      <a class="brand" href="#top"><span class="name">CLIMAX</span></a>
+      <div class="links">
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="app.html">Live dashboard</a>
+      </div>
+      <div class="copy">© 2026 Climax — Environment &amp; civic intelligence. Predict the hazard, prepare the response, credit the community.</div>
+    </div>
+  </footer>
+
+  <script src="assets/landing.js"></script>
+</body>
+</html>
